@@ -32,13 +32,13 @@ public class PayPage {
 
     public FormPage clickPayButton() {
         payButton.click();
-        formHead.should(Condition.visible, Condition.text("Оплата по карте"));
+        formHead.should(Condition.visible, Condition.text("Купить"));
         return new FormPage();
     }
 
     public FormPage clickCreditButton() {
         creditButton.click();
-        formHead.should(Condition.visible, Condition.text("Кредит по данным карты"));
+        formHead.should(Condition.visible, Condition.text("Купить в кредит"));
         return new FormPage();
     }
 

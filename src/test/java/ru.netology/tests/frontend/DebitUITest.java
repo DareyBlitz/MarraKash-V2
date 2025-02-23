@@ -105,7 +105,7 @@ public class DebitUITest {
     }
 
     @Test
-    public void shouldSuccessfulWithStartEndSpacebarInNumber() {
+    public void shouldSuccessfulWithStartEndSpacerInNumber() {
         data = DataHelper.getValidApprovedCard();
         var number = " " + data.getNumber() + " ";
         var matchesNumber = data.getNumber();

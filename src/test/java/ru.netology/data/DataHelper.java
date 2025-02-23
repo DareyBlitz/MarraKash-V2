@@ -13,11 +13,11 @@ public class DataHelper {
 
     @Value
     public static class Data {
-        private final String number;
-        private final String month;
-        private final String year;
-        private final String holder;
-        private final String cvc;
+        public String number;
+        public String month;
+        public String year;
+        public String holder;
+        public String cvc;
     }
 
     public static Data getValidApprovedCard() {
