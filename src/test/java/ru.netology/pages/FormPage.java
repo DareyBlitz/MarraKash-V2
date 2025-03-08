@@ -106,9 +106,14 @@ public class FormPage {
         yearLabel.$x(".//span[@class='input__sub']").should(Condition.visible, Condition.text("Неверный формат"));
     }
 
+    public void assertYearFieldInvalidValue() {
+        yearLabel.should(Condition.cssClass("input_invalid"), Condition.cssClass("input_has-value"));
+        yearLabel.$x(".//span[@class='input__sub']").should(Condition.visible, Condition.text("Истёк срок действия карты"));
+    }
+
     public void assertHolderFieldIsEmptyValue() {
         holderLabel.should(Condition.cssClass("input_invalid")).shouldNot(Condition.cssClass("input_has-value"));
-        holderLabel.$x(".//span[@class='input__sub']").should(Condition.visible, Condition.text("Неверный формат"));
+        holderLabel.$x(".//span[@class='input__sub']").should(Condition.visible, Condition.text("Поле обязательно для заполнения"));
     }
 
     public void assertHolderFieldIsInvalidValue() {

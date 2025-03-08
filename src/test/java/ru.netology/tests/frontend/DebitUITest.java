@@ -32,7 +32,7 @@ public class DebitUITest {
 
     @BeforeEach
     public void setupMethod() {
-        open("http://localhost:8080/");
+        open("http://localhost:8080");
         card = new PayPage();
     }
 

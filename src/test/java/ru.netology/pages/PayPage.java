@@ -6,11 +6,11 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class PayPage {
-    ;
+
     private final SelenideElement card = $x("//div[@id='root']/div/div[contains(@class, 'card')]");
 
-    private final SelenideElement payButton = $x("//span[text()='Купить']//ancestor::button");;
-    private final SelenideElement creditButton = $x("//span[text()='Купить в кредит']//ancestor::button");;
+    private final SelenideElement payButton = $x("//span[text()='Купить']//ancestor::button");
+    private final SelenideElement creditButton = $x("//span[text()='Купить в кредит']//ancestor::button");
     private final SelenideElement formHead = $x("//form//preceding-sibling::h3");
 
     public PayPage() {
