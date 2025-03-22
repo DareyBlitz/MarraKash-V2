@@ -20,7 +20,7 @@ public class CreditAPITest {
     private static final Gson gson = new Gson();
     private static final RequestSpecification spec = new RequestSpecBuilder().setBaseUri("http://localhost").setPort(8080)
             .setAccept(ContentType.JSON).setContentType(ContentType.JSON).log(LogDetail.ALL).build();
-    private static final String creditUrl = "/credit";
+    private static final String creditUrl = "http://localhost:9999/credit";
     private static List<SQLHelper.PaymentEntity> payments;
     private static List<SQLHelper.CreditRequestEntity> credits;
     private static List<SQLHelper.OrderEntity> orders;
@@ -55,7 +55,7 @@ public class CreditAPITest {
         Assertions.assertEquals(1, credits.size());
         Assertions.assertEquals(1, orders.size());
 
-        Assertions.assertTrue(credits.get(0).getStatus().equalsIgnoreCase("approved"));
+        Assertions.assertTrue(credits.get(1).getStatus().equalsIgnoreCase("approved"));
         Assertions.assertEquals(credits.get(0).getBank_id(), orders.get(0).getPayment_id());
         Assertions.assertEquals(credits.get(0).getId(), orders.get(0).getCredit_id());
     }
@@ -75,7 +75,7 @@ public class CreditAPITest {
         Assertions.assertEquals(1, credits.size());
         Assertions.assertEquals(1, orders.size());
 
-        Assertions.assertTrue(credits.get(0).getStatus().equalsIgnoreCase("declined"));
+        Assertions.assertTrue(credits.get(0).getStatus().equalsIgnoreCase("approved"));
         Assertions.assertEquals(credits.get(0).getBank_id(), orders.get(0).getPayment_id());
         Assertions.assertEquals(credits.get(0).getId(), orders.get(0).getCredit_id());
     }

@@ -22,31 +22,37 @@ allure {
 repositories {
     jcenter()
     mavenCentral()
-
-dependencies {
-    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.11.0-M2'
-    testImplementation 'io.qameta.allure:allure-selenide:2.13.3'
-    implementation 'org.projectlombok:lombok:1.18.26'
-    testImplementation 'com.codeborne:selenide:6.13.0'
-    testImplementation 'com.github.javafaker:javafaker:1.0.2'
-    testImplementation 'commons-dbutils:commons-dbutils:1.7'
-    testImplementation 'mysql:mysql-connector-java:8.0.33'
-    testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '5.3.0'
-    implementation group: 'com.google.code.gson', name: 'gson', version: '2.10.1'
-    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.33'
-    implementation group: 'org.postgresql', name: 'postgresql', version: '42.7.2'
 }
 
-configurations {
-    testCompile
-}
+    dependencies {
+        testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.11.0-M2'
+        testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+        testImplementation 'io.qameta.allure:allure-selenide:2.13.3'
+        implementation 'org.projectlombok:lombok:1.18.26'
+        testImplementation 'com.codeborne:selenide:6.12.3'
+        testImplementation 'com.github.javafaker:javafaker:1.0.2'
+        testImplementation 'commons-dbutils:commons-dbutils:1.7'
+        testImplementation 'mysql:mysql-connector-java:8.0.33'
+        testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '5.3.0'
+        implementation group: 'com.google.code.gson', name: 'gson', version: '2.10.1'
+        implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.33'
+        implementation group: 'org.postgresql', name: 'postgresql', version: '42.7.2'
+        testImplementation 'io.github.bonigarcia:webdrivermanager:5.6.2'
+    }
 
+    configurations {
+        testCompile
+    }
 
     test {
-    useJUnitPlatform()
-    systemProperty 'selenide.headless', System.getProperty('selenide.headless')
-    systemProperty 'db.url', System.getProperty('db.url', 'jdbc:mysql://192.168.99.100:3306/app')
-    systemProperty 'db.user', System.getProperty('db.user', "app")
-    systemProperty 'db.password', System.getProperty('db.password', "pass")
-    systemProperty 'sut.url', System.getProperty('sut.url', "http://localhost:8080")}
-}
+        useJUnitPlatform()
+        systemProperty 'selenide.headless', System.getProperty('selenide.headless')
+        systemProperty 'db.url', System.getProperty('db.url')
+        systemProperty 'db.user', System.getProperty('db.user', "app")
+        systemProperty 'db.password', System.getProperty('db.password', "pass")
+        systemProperty 'sut.url', System.getProperty('sut.url', "http://localhost:8080")
+        systemProperty 'selenide.browser', 'chrome'
+
+
+
+    }

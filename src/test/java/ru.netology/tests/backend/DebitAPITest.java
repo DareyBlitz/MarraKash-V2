@@ -20,7 +20,7 @@ public class DebitAPITest {
     private static final Gson gson = new Gson();
     private static final RequestSpecification spec = new RequestSpecBuilder().setBaseUri("http://localhost").setPort(8080)
             .setAccept(ContentType.JSON).setContentType(ContentType.JSON).log(LogDetail.ALL).build();
-    private static final String paymentUrl = "/payment";
+    private static final String paymentUrl = "http://localhost:9999/payment";
     private static List<SQLHelper.PaymentEntity> payments;
     private static List<SQLHelper.CreditRequestEntity> credits;
     private static List<SQLHelper.OrderEntity> orders;

@@ -21,22 +21,25 @@ public class DataHelper {
     }
 
     public static Data getValidApprovedCard() {
-        return new Data(getNumberByStatus("approved"), generateMonth(1), generateYear(2),
+        return new Data(getNumberByStatus("APPROVED"), generateMonth(1), generateYear(2),
                 generateValidHolder(), generateValidCVC());
     }
 
     public static Data getValidDeclinedCard() {
-        return new Data(getNumberByStatus("declined"), generateMonth(1), generateYear(2),
+        return new Data(getNumberByStatus("DECLINED"), generateMonth(1), generateYear(2),
                 generateValidHolder(), generateValidCVC());
     }
 
     public static String getNumberByStatus(String status) {
+        if (status == null || status.isEmpty()) {
+            throw new IllegalArgumentException("Status cannot be null or empty");
+        }
         if (status.equalsIgnoreCase("APPROVED")) {
             return "4444 4444 4444 4441";
         } else if (status.equalsIgnoreCase("DECLINED")) {
             return "4444 4444 4444 4442";
         }
-        return null;
+        throw new IllegalArgumentException("Invalid status: " + status);
     }
 
     public static String generateInvalidCardNumberWith16RandomNumerals() {
@@ -52,6 +55,9 @@ public class DataHelper {
     }
 
     public static String generateMonth(int shiftMonth) {
+        if (shiftMonth < 0) {
+            throw new IllegalArgumentException("Shift month cannot be negative");
+        }
         return LocalDate.now().plusMonths(shiftMonth).format(DateTimeFormatter.ofPattern("MM"));
     }
 
@@ -60,6 +66,9 @@ public class DataHelper {
     }
 
     public static String generateYear(int shiftYear) {
+        if (shiftYear < 0) {
+            throw new IllegalArgumentException("Shift year cannot be negative");
+        }
         return LocalDate.now().plusYears(shiftYear).format(DateTimeFormatter.ofPattern("yy"));
     }
 

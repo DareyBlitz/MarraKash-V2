@@ -1,5 +1,6 @@
 package ru.netology.tests.frontend;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
@@ -10,11 +11,14 @@ import ru.netology.pages.PayPage;
 
 import java.util.List;
 
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CreditUITest {
+
     private static DataHelper.Data data;
 
     private static PayPage card;
@@ -51,6 +55,7 @@ public class CreditUITest {
         form = card.clickCreditButton();
         form.insertingValueInForm(data.getNumber(), data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
         form.matchesByInsertValue(data.getNumber(), data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
+        card.clickBuyContinue();
         form.assertBuyOperationIsSuccessful();
 
         payments = SQLHelper.getPayments();
@@ -60,7 +65,7 @@ public class CreditUITest {
         assertEquals(1, credits.size());
         assertEquals(1, orders.size());
 
-        assertTrue(credits.get(0).getStatus().equalsIgnoreCase("approved"));
+        assertTrue(credits.get(0).getStatus().equalsIgnoreCase("APPROVED"));
         assertEquals(credits.get(0).getBank_id(), orders.get(0).getPayment_id());
         assertEquals(credits.get(0).getId(), orders.get(0).getCredit_id());
     }
@@ -72,6 +77,7 @@ public class CreditUITest {
         form = card.clickCreditButton();
         form.insertingValueInForm(data.getNumber(), data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
         form.matchesByInsertValue(data.getNumber(), data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
+        form = card.clickBuyContinue();
         form.assertBuyOperationWithErrorNotification();
 
         payments = SQLHelper.getPayments();
@@ -81,7 +87,7 @@ public class CreditUITest {
         assertEquals(1, credits.size());
         assertEquals(1, orders.size());
 
-        assertTrue(credits.get(0).getStatus().equalsIgnoreCase("declined"));
+        assertTrue(credits.get(0).getStatus().equalsIgnoreCase("DECLINED"));
         assertEquals(credits.get(0).getBank_id(), orders.get(0).getPayment_id());
         assertEquals(credits.get(0).getId(), orders.get(0).getCredit_id());
     }
@@ -92,7 +98,9 @@ public class CreditUITest {
 
         form = card.clickPayButton();
         form.insertingValueInForm(data.getNumber(), data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
+        form = card.clickBuyContinue();
         form = card.clickCreditButton();
         form.matchesByInsertValue(data.getNumber(), data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
+        form = card.clickBuyContinue();
     }
 }
