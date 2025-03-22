@@ -51,11 +51,11 @@ public class CreditAPITest {
         payments = SQLHelper.getPayments();
         credits = SQLHelper.getCreditsRequest();
         orders = SQLHelper.getOrders();
-        Assertions.assertEquals(0, payments.size());
-        Assertions.assertEquals(1, credits.size());
+        Assertions.assertEquals(1, payments.size());
+        Assertions.assertEquals(0, credits.size());
         Assertions.assertEquals(1, orders.size());
 
-        Assertions.assertTrue(credits.get(1).getStatus().equalsIgnoreCase("approved"));
+        Assertions.assertTrue(credits.get(0).getStatus().equalsIgnoreCase("APPROVED"));
         Assertions.assertEquals(credits.get(0).getBank_id(), orders.get(0).getPayment_id());
         Assertions.assertEquals(credits.get(0).getId(), orders.get(0).getCredit_id());
     }
@@ -71,11 +71,11 @@ public class CreditAPITest {
         payments = SQLHelper.getPayments();
         credits = SQLHelper.getCreditsRequest();
         orders = SQLHelper.getOrders();
-        Assertions.assertEquals(0, payments.size());
-        Assertions.assertEquals(1, credits.size());
+        Assertions.assertEquals(1, payments.size());
+        Assertions.assertEquals(0, credits.size());
         Assertions.assertEquals(1, orders.size());
 
-        Assertions.assertTrue(credits.get(0).getStatus().equalsIgnoreCase("approved"));
+        Assertions.assertTrue(credits.get(0).getStatus().equalsIgnoreCase("DECLINED"));
         Assertions.assertEquals(credits.get(0).getBank_id(), orders.get(0).getPayment_id());
         Assertions.assertEquals(credits.get(0).getId(), orders.get(0).getCredit_id());
     }
