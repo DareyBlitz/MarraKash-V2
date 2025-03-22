@@ -48,7 +48,6 @@ public class DebitUITest {
         form = card.clickPayButton();
         form.insertingValueInForm(data.getNumber(), data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
         form.matchesByInsertValue(data.getNumber(), data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
-        form = card.clickBuyContinue();
         form.assertBuyOperationIsSuccessful();
 
         payments = SQLHelper.getPayments();
@@ -71,7 +70,6 @@ public class DebitUITest {
         form = card.clickPayButton();
         form.insertingValueInForm(data.getNumber(), data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
         form.matchesByInsertValue(data.getNumber(), data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
-        form = card.clickBuyContinue();
         form.assertBuyOperationWithErrorNotification();
 
         payments = SQLHelper.getPayments();
@@ -93,8 +91,8 @@ public class DebitUITest {
 
         form = card.clickCreditButton();
         form.insertingValueInForm(data.getNumber(), data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
-        form = card.clickBuyContinue();
         form.matchesByInsertValue(data.getNumber(), data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
+
     }
 
     @Test
@@ -103,7 +101,7 @@ public class DebitUITest {
         form = card.clickPayButton();
         form.insertingValueInForm("", data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
         form.matchesByInsertValue("", data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
-        form = card.clickBuyContinue();
+
         form.assertNumberFieldIsEmptyValue();
     }
 
@@ -116,6 +114,7 @@ public class DebitUITest {
         form = card.clickPayButton();
         form.insertingValueInForm(number, data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
         form.matchesByInsertValue(matchesNumber, data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
+
         form.assertBuyOperationIsSuccessful();
     }
 
@@ -127,6 +126,7 @@ public class DebitUITest {
         form = card.clickPayButton();
         form.insertingValueInForm(number, data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
         form.matchesByInsertValue(number, data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
+
         form.assertNumberFieldIsInvalidValue();
     }
 
@@ -138,6 +138,7 @@ public class DebitUITest {
         form = card.clickPayButton();
         form.insertingValueInForm(number, data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
         form.matchesByInsertValue(number, data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
+
         form.assertBuyOperationWithErrorNotification();
     }
 
@@ -150,6 +151,7 @@ public class DebitUITest {
         form = card.clickPayButton();
         form.insertingValueInForm(number, data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
         form.matchesByInsertValue(matchesNumber, data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
+
         form.assertNumberFieldIsEmptyValue();
     }
 
@@ -162,6 +164,7 @@ public class DebitUITest {
         form = card.clickPayButton();
         form.insertingValueInForm(data.getNumber(), month, data.getYear(), data.getHolder(), data.getCvc());
         form.matchesByInsertValue(data.getNumber(), matchesMonth, data.getYear(), data.getHolder(), data.getCvc());
+
         form.assertMonthFieldIsEmptyValue();
     }
 
@@ -173,6 +176,7 @@ public class DebitUITest {
         form = card.clickPayButton();
         form.insertingValueInForm(data.getNumber(), month, data.getYear(), data.getHolder(), data.getCvc());
         form.matchesByInsertValue(data.getNumber(), month, data.getYear(), data.getHolder(), data.getCvc());
+
         form.assertMonthFieldIsInvalidValue();
     }
 
@@ -184,6 +188,7 @@ public class DebitUITest {
         form = card.clickPayButton();
         form.insertingValueInForm(data.getNumber(), month, data.getYear(), data.getHolder(), data.getCvc());
         form.matchesByInsertValue(data.getNumber(), month, data.getYear(), data.getHolder(), data.getCvc());
+
         form.assertMonthFieldIsInvalidValue();
     }
 
@@ -196,6 +201,7 @@ public class DebitUITest {
         form = card.clickPayButton();
         form.insertingValueInForm(data.getNumber(), month, data.getYear(), data.getHolder(), data.getCvc());
         form.matchesByInsertValue(data.getNumber(), matchesMonth, data.getYear(), data.getHolder(), data.getCvc());
+
         form.assertMonthFieldIsEmptyValue();
     }
 
@@ -207,6 +213,7 @@ public class DebitUITest {
         form = card.clickPayButton();
         form.insertingValueInForm(data.getNumber(), data.getMonth(), year, data.getHolder(), data.getCvc());
         form.matchesByInsertValue(data.getNumber(), data.getMonth(), year, data.getHolder(), data.getCvc());
+
         form.assertYearFieldIsEmptyValue();
     }
 
@@ -219,6 +226,7 @@ public class DebitUITest {
         form = card.clickPayButton();
         form.insertingValueInForm(data.getNumber(), data.getMonth(), year, data.getHolder(), data.getCvc());
         form.matchesByInsertValue(data.getNumber(), data.getMonth(), matchesYear, data.getHolder(), data.getCvc());
+
         form.assertYearFieldIsEmptyValue();
     }
 
@@ -230,6 +238,7 @@ public class DebitUITest {
         form = card.clickPayButton();
         form.insertingValueInForm(data.getNumber(), data.getMonth(), data.getYear(), holder, data.getCvc());
         form.matchesByInsertValue(data.getNumber(), data.getMonth(), data.getYear(), holder, data.getCvc());
+
         form.assertHolderFieldIsEmptyValue();
     }
 
@@ -242,6 +251,7 @@ public class DebitUITest {
         form = card.clickPayButton();
         form.insertingValueInForm(data.getNumber(), data.getMonth(), data.getYear(), holder, data.getCvc());
         form.matchesByInsertValue(data.getNumber(), data.getMonth(), data.getYear(), matchesHolder, data.getCvc());
+
         form.assertHolderFieldIsEmptyValue();
     }
 
@@ -254,6 +264,7 @@ public class DebitUITest {
         form = card.clickPayButton();
         form.insertingValueInForm(data.getNumber(), data.getMonth(), data.getYear(), holder, data.getCvc());
         form.matchesByInsertValue(data.getNumber(), data.getMonth(), data.getYear(), matchesHolder, data.getCvc());
+
         form.assertHolderFieldIsEmptyValue();
     }
 
@@ -265,6 +276,7 @@ public class DebitUITest {
         form = card.clickPayButton();
         form.insertingValueInForm(data.getNumber(), data.getMonth(), data.getYear(), data.getHolder(), cvc);
         form.matchesByInsertValue(data.getNumber(), data.getMonth(), data.getYear(), data.getHolder(), cvc);
+
         form.assertCvcFieldIsEmptyValue();
     }
 
@@ -276,6 +288,7 @@ public class DebitUITest {
         form = card.clickPayButton();
         form.insertingValueInForm(data.getNumber(), data.getMonth(), data.getYear(), data.getHolder(), cvc);
         form.matchesByInsertValue(data.getNumber(), data.getMonth(), data.getYear(), data.getHolder(), cvc);
+
         form.assertCvcFieldIsInvalidValue();
     }
 
@@ -288,6 +301,7 @@ public class DebitUITest {
         form = card.clickPayButton();
         form.insertingValueInForm(data.getNumber(), data.getMonth(), data.getYear(), data.getHolder(), cvc);
         form.matchesByInsertValue(data.getNumber(), data.getMonth(), data.getYear(), data.getHolder(), matchesCvc);
+
         form.assertCvcFieldIsEmptyValue();
     }
 }

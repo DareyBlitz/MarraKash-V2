@@ -55,7 +55,6 @@ public class CreditUITest {
         form = card.clickCreditButton();
         form.insertingValueInForm(data.getNumber(), data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
         form.matchesByInsertValue(data.getNumber(), data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
-        card.clickBuyContinue();
         form.assertBuyOperationIsSuccessful();
 
         payments = SQLHelper.getPayments();
@@ -77,7 +76,6 @@ public class CreditUITest {
         form = card.clickCreditButton();
         form.insertingValueInForm(data.getNumber(), data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
         form.matchesByInsertValue(data.getNumber(), data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
-        form = card.clickBuyContinue();
         form.assertBuyOperationWithErrorNotification();
 
         payments = SQLHelper.getPayments();
@@ -98,9 +96,8 @@ public class CreditUITest {
 
         form = card.clickPayButton();
         form.insertingValueInForm(data.getNumber(), data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
-        form = card.clickBuyContinue();
         form = card.clickCreditButton();
         form.matchesByInsertValue(data.getNumber(), data.getMonth(), data.getYear(), data.getHolder(), data.getCvc());
-        form = card.clickBuyContinue();
+
     }
 }

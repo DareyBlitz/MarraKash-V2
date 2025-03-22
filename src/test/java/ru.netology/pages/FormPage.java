@@ -11,17 +11,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class FormPage {
 
     private final SelenideElement form = $x("//form");
-    private final SelenideElement numberLabel = form.$x(".//span[text()='Номер карты']//ancestor::div/span");
-    private final SelenideElement numberInput = numberLabel.$x(".//ancestor::span//input");
-    private final SelenideElement monthLabel = form.$x(".//span[text()='Месяц']//ancestor::div/span/span[1]/span");
-    private final SelenideElement monthInput = monthLabel.$x(".//input");
-    private final SelenideElement yearLabel = form.$x(".//span[text()='Год']//ancestor::div/span/span[2]/span");
-    private final SelenideElement yearInput = yearLabel.$x(".//input");
-    private final SelenideElement holderLabel = form.$x(".//span[text()='Владелец']//ancestor::div/span/span[1]/span");
-    private final SelenideElement holderInput = holderLabel.$x(".//input");
-    private final SelenideElement cvcLabel = form.$x(".//span[text()='CVC/CVV']//ancestor::div/span/span[2]/span");
-    private final SelenideElement cvcInput = cvcLabel.$x(".//input");
-    private final SelenideElement continueButton = form.$x(".//span[text()='Продолжить']//ancestor::button");
+    private final SelenideElement numberLabel = form.$x("//*[@id=\"root\"]/div/form/fieldset/div[1]/span/span/span[1]");
+    private final SelenideElement numberInput = numberLabel.$x("//*[@id=\"root\"]/div/form/fieldset/div[1]/span/span/span[2]/input");
+    private final SelenideElement monthLabel = form.$x("//*[@id=\"root\"]/div/form/fieldset/div[2]/span/span[1]/span/span/span[1]n");
+    private final SelenideElement monthInput = monthLabel.$x("//*[@id=\"root\"]/div/form/fieldset/div[2]/span/span[1]/span/span/span[2]/input");
+    private final SelenideElement yearLabel = form.$x("//*[@id=\"root\"]/div/form/fieldset/div[2]/span/span[2]/span/span/span[1]");
+    private final SelenideElement yearInput = yearLabel.$x("//*[@id=\"root\"]/div/form/fieldset/div[2]/span/span[2]/span/span/span[2]/input");
+    private final SelenideElement holderLabel = form.$x("//*[@id=\"root\"]/div/form/fieldset/div[3]/span/span[1]/span/span/span[1]");
+    private final SelenideElement holderInput = holderLabel.$x("//*[@id=\"root\"]/div/form/fieldset/div[3]/span/span[1]/span/span/span[2]/input");
+    private final SelenideElement cvcLabel = form.$x("//*[@id=\"root\"]/div/form/fieldset/div[3]/span/span[2]/span/span/span[1]");
+    private final SelenideElement cvcInput = cvcLabel.$x(".//*[@id=\"root\"]/div/form/fieldset/div[3]/span/span[2]/span/span/span[2]/input");
+    private final SelenideElement continueButton = form.$x("//*[@id=\"root\"]/div/form/fieldset/div[4]/button/span/span");
 
     private final SelenideElement successNotification = $x("//div[contains(@class, 'notification_status_ok')]");
     private final SelenideElement successCloseButton = successNotification.$x("./button");

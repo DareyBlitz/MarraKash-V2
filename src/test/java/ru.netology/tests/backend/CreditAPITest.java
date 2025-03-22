@@ -114,7 +114,7 @@ public class CreditAPITest {
 
     @Test
     public void shouldStatus400WithEmptyMonth() {
-        data = new DataHelper.Data(DataHelper.getNumberByStatus("approved"), null, DataHelper.generateYear(2),
+        data = new DataHelper.Data(DataHelper.getNumberByStatus("APPROVED"), null, DataHelper.generateYear(2),
                 DataHelper.generateValidHolder(), DataHelper.generateValidCVC());
         var body = gson.toJson(data);
         given().spec(spec).body(body)
