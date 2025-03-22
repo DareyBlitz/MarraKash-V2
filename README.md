@@ -2,7 +2,7 @@
 # Запуск SUT и автоматизированных тестов 
 ## Подключение SUT к MySQL
 1.	Открыть проект `MarraKash-V2` в IntelliJ IDEA.
-2.	Запустить Docker Desktop. Установить соединение (Services (Alt + 8), нажать на Docker, выбрать `Connect`)
+2.	Запустить Docker Desktop. Установить соединение (Services (Alt + 8), нажать ПКМ на Docker, выбрать `Connect`)
 3.	Запустить DBeaver.
 4.	В терминале в корне проекта запустить контейнер:
    `docker-compose up`.
@@ -19,7 +19,7 @@
 
 ## Подключение SUT к PostgreSQL
 1.	Открыть проект `MarraKash-V2` в IntelliJ IDEA.
-2.	Запустить Docker Desktop. Установить соединение (Services (Alt + 8), нажать на Docker, выбрать `Connect`)
+2.	Запустить Docker Desktop. Установить соединение (Services (Alt + 8), нажать ПКМ на Docker, выбрать `Connect`)
 3.	Запустить DBeaver.
 4.	В терминале в корне проекта запустить контейнер:
    `docker-compose up`.
